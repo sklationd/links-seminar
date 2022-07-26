@@ -55,4 +55,29 @@ export const ABI = [
         stateMutability: "view",
         type: "function",
     },
+    {
+        inputs: [],
+        name: "retrieveImages",
+        outputs: [
+            {
+                components: [
+                    {
+                        internalType: "address",
+                        name: "author",
+                        type: "address",
+                    },
+                    {
+                        internalType: "string",
+                        name: "url",
+                        type: "string",
+                    },
+                ],
+                internalType: "struct ImageBox.Image[]",
+                name: "",
+                type: "tuple[]",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
 ];

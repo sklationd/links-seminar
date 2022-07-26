@@ -17,5 +17,10 @@ contract ImageBox {
     function addImage(string memory _url) public {
         images.push(Image(msg.sender, _url));
         addressToAttributeCount[ msg.sender ] += 1;
+
+    }
+
+    function retrieveImages() public view returns (Image[] memory ) {
+        return images;
     }
 }

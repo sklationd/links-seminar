@@ -8,7 +8,6 @@ const registerConnectButtonHandler = function (provider) {
         try {
             await provider.send("eth_requestAccounts", []);
         } catch (e) {
-            console.log("CATCH!");
             console.error(e);
         }
     });
