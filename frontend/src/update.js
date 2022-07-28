@@ -45,8 +45,6 @@ async function updateContributeCount(provider, network, currentAccount) {
             console.log(error.message, `Failed to get contribute count`);
         }
 
-        console.log(count);
-
         const p = document.getElementById("contributeCount");
         p.innerText = `You have contributed ${count} images!`;
     }
