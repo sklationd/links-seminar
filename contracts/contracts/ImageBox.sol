@@ -12,11 +12,11 @@ contract ImageBox {
     }
 
     Image[] public images;
-    mapping(address => uint256) public addressToAttributeCount;
+    mapping(address => uint256) public addressToContributeCount;
 
     function addImage(string memory _url) public {
         images.push(Image(msg.sender, _url));
-        addressToAttributeCount[ msg.sender ] += 1;
+        addressToContributeCount[ msg.sender ] += 1;
 
     }
 

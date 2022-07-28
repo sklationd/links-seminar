@@ -20,7 +20,7 @@ export const ABI = [
                 type: "address",
             },
         ],
-        name: "addressToAttributeCount",
+        name: "addressToContributeCount",
         outputs: [
             {
                 internalType: "uint256",
