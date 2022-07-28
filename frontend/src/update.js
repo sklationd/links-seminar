@@ -5,6 +5,7 @@ export const updateView = async function (provider, network, currentAccount) {
     updateNetworkName(network);
     updateWalletAddress(currentAccount);
     updateConnectButton(currentAccount);
+    updateContributeCount(provider, network, currentAccount);
     updateImageList(provider, network, currentAccount);
 };
 
@@ -29,6 +30,25 @@ function updateConnectButton(currentAccount) {
     if (currentAccount) {
         connectButton.disabled = true;
         connectButton.innerText = "Connected";
+    }
+}
+
+async function updateContributeCount(provider, network, currentAccount) {
+    if (currentAccount && ADDRESS[network.name]) {
+        const abi = ABI;
+        const address = ADDRESS[network.name]; // TODO check chainId and network name
+        const contract = new ethers.Contract(address, abi, provider);
+        let count = 0;
+        try {
+            count = await contract.addressToContributeCount(currentAccount);
+        } catch (error) {
+            console.log(error.message, `Failed to get contribute count`);
+        }
+
+        console.log(count);
+
+        const p = document.getElementById("contributeCount");
+        p.innerText = `You have contributed ${count} images!`;
     }
 }
 
