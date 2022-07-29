@@ -7,15 +7,15 @@ def deploy_image_box():
     active_network = network.show_active()
     print(f"The active network is {active_network}")
 
-    fund_me = ImageBox.deploy(
+    deployed_contract = ImageBox.deploy(
         {"from": account},
         publish_source=config["networks"][active_network].get("verify"),
     )
 
     # if we are on a persistent network like linkeby
-    print(f"Contract deployed to {fund_me.address}")
+    print(f"Contract deployed to {deployed_contract.address}")
 
-    return fund_me
+    return deployed_contract
 
 
 def main():
