@@ -68,6 +68,7 @@ async function updateImageList(provider, network, currentAccount) {
             img.classList.add("imageItem");
             img.src = image.url;
             img.alt = `${image.author}'s image`;
+            img.title = `${image.author}'s image`;
             container.appendChild(img);
         });
     }
