@@ -50,7 +50,7 @@ const registerSubmitButtonHandler = function (
 
 const registerImageAddedEventListener = function (provider, network) {
     const contract = new ethers.Contract(ADDRESS[network.name], ABI, provider);
-    contract.on("ImageAdded", (author, url, id) => {
+    contract.once("ImageAdded", (author, url, id) => {
         console.log(`${author} posted ${id}th image ${url}`);
         window.location.reload();
     });
