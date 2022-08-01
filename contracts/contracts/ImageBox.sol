@@ -3,6 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 contract ImageBox {
+    event ImageAdded(address indexed _author, string _url, uint256 _id);
 
     struct Image {
         address author;
@@ -15,6 +16,7 @@ contract ImageBox {
     mapping(address => uint256) public addressToContributeCount;
 
     function addImage(string memory _url) public {
+        emit ImageAdded( msg.sender, _url, images.length);
         images.push(Image(msg.sender, _url));
         addressToContributeCount[ msg.sender ] += 1;
 

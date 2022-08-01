@@ -1,5 +1,30 @@
 export const ABI = [
     {
+        anonymous: false,
+        inputs: [
+            {
+                indexed: true,
+                internalType: "address",
+                name: "_author",
+                type: "address",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "_url",
+                type: "string",
+            },
+            {
+                indexed: false,
+                internalType: "uint256",
+                name: "_id",
+                type: "uint256",
+            },
+        ],
+        name: "ImageAdded",
+        type: "event",
+    },
+    {
         inputs: [
             {
                 internalType: "string",

@@ -4,6 +4,7 @@ import { ABI } from "./abi.js";
 export const registerHandler = function (provider, network, currentAccount) {
     registerConnectButtonHandler(provider);
     registerSubmitButtonHandler(provider, network, currentAccount);
+    registerImageAddedEventListener(provider);
 };
 
 const registerConnectButtonHandler = function (provider) {
@@ -45,4 +46,12 @@ const registerSubmitButtonHandler = function (
             }
         });
     }
+};
+
+const registerImageAddedEventListener = function (provider) {
+    const contract = new ethers.Contract(ADDRESS, ABI, provider);
+    const filter = contract.filters.ImageAdded();
+    contract.on(filter, () => {
+        window.location.reload();
+    });
 };

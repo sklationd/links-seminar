@@ -1,3 +1,3 @@
 export const ADDRESS = {
-    rinkeby: "0x497547fAb9EE8779565418391E23C6B100Aeb075",
+    rinkeby: "0x6dDD10FBbDcD14B02Ba2FdaE0E7ef2b5e3164776",
 };
