@@ -4,7 +4,7 @@ import { ABI } from "./abi.js";
 export const registerHandler = function (provider, network, currentAccount) {
     registerConnectButtonHandler(provider);
     registerSubmitButtonHandler(provider, network, currentAccount);
-    registerImageAddedEventListener(provider);
+    registerImageAddedEventListener(provider, network);
 };
 
 const registerConnectButtonHandler = function (provider) {
@@ -48,8 +48,8 @@ const registerSubmitButtonHandler = function (
     }
 };
 
-const registerImageAddedEventListener = function (provider) {
-    const contract = new ethers.Contract(ADDRESS, ABI, provider);
+const registerImageAddedEventListener = function (provider, network) {
+    const contract = new ethers.Contract(ADDRESS[network.name], ABI, provider);
     contract.on("ImageAdded", (author, url, id) => {
         console.log(`${author} posted ${id}th image ${url}`);
         window.location.reload();
