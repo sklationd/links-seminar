@@ -1,6 +1,6 @@
-### Usage
+## Usage
 
-#### Contract
+### Contract
 
 이미 rinkeby 네트워크에 contract가 올라가 있기 때문에, contract를 수정한 경우에만 아래 명령 실행
 명령 실행 이후, `frontend/src/abi.js`와 `frontend/src/address.js`를 적절히 변경해줘야함
@@ -12,16 +12,42 @@ $ brownie compile
 $ brownie run scripts/deploy.py --network rinkeby
 ```
 
-#### Frontend ( Vercel에 배포 되어 있음 )
+### Frontend ( Vercel에 배포 되어 있음 )
 
 ```sh
 $ npm install -g http-server
 $ http-server ./frontend
 ```
 
-### Resources
+### Structure
 
-#### Contract
+```
+.
+├─ README.md
+├─ contracts
+│  ├─ contracts
+│  │  └─ ImageBox.sol               // Contract 코드
+│  ├─ scripts
+│  │  ├─ deploy.py                  // Deploy 관련 스크립트
+│  │  └─ helpful_scripts.py
+│  ├─ .env-example
+│  ├─ .gitattributes
+│  ├─ .gitignore
+│  └─ brownie-config.yaml
+└─ frontend
+   ├─ src
+   │  ├─ abi.js
+   │  ├─ address.js
+   │  ├─ handler.js                 // 버튼 클릭 등 이벤트 핸들러
+   │  ├─ index.js                   // 메타마스크 로그인
+   │  └─ update.js                  // 뷰 업데이트 관련 코드
+   ├─ index.css
+   └─ index.html
+```
+
+## Resources
+
+### Contract
 
 -   [Brownie](https://eth-brownie.readthedocs.io/en/stable/)
     -   Python 기반 Ethereum Smart Contract Deploy/Test Framework
